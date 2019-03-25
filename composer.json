@@ -1,0 +1,30 @@
+{
+  "name": "cihaeuser/scripts",
+  "description": "Load javascripts as webpack.",
+  "type": "oxideshop-module",
+  "keywords": [
+    "oxid",
+    "modules",
+    "assets"
+  ],
+  "homepage": "https://www.seipp.com",
+  "license": [
+    "GPL-3.0-only"
+  ],
+  "extra": {
+    "oxideshop": {
+      "blacklist-filter": [
+        "documentation/**/*.*"
+      ],
+      "target-directory": "ci-haeuser/Scripts"
+    }
+  },
+  "require": {
+    "php": ">=7.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Ci\\Oxid\\Scripts\\": "../../../source/modules/ci-haeuser/Scripts/"
+    }
+  }
+}
