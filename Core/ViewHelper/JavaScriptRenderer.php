@@ -41,7 +41,9 @@ class JavaScriptRenderer extends JavaScriptRenderer_parent
                     }
                 }
                 if(!empty($masterFile[0]) || !$config->getConfigParam('ScriptsAreConcatenated')) {
-                    $files = $masterFile;
+                    if($config->getConfigParam('ScriptsAreConcatenated')) {
+                        $files = $masterFile;
+                    }
                 
                     $output .= $this->formFilesOutput($files, $widget);
                     $config->setGlobalParameter($filesParameterName, null);
