@@ -40,16 +40,16 @@ class JavaScriptRenderer extends JavaScriptRenderer_parent
                         }
                     }
                 }
-                if(!empty($masterFile[0])) {
+                if(!empty($masterFile[0]) || !$config->getConfigParam('ScriptsAreConcatenated')) {
                     $files = $masterFile;
-                }
-
-                $output .= $this->formFilesOutput($files, $widget);
-                $config->setGlobalParameter($filesParameterName, null);
-                if ($widget) {
-                    $dynamicIncludes = (array)$config->getGlobalParameter(\OxidEsales\Eshop\Core\ViewHelper\JavaScriptRegistrator::FILES_PARAMETER_NAME . '_dynamic');
-                    $output .= $this->formFilesOutput($dynamicIncludes, $widget);
-                    $config->setGlobalParameter(\OxidEsales\Eshop\Core\ViewHelper\JavaScriptRegistrator::FILES_PARAMETER_NAME . '_dynamic', null);
+                
+                    $output .= $this->formFilesOutput($files, $widget);
+                    $config->setGlobalParameter($filesParameterName, null);
+                    if ($widget) {
+                        $dynamicIncludes = (array)$config->getGlobalParameter(\OxidEsales\Eshop\Core\ViewHelper\JavaScriptRegistrator::FILES_PARAMETER_NAME . '_dynamic');
+                        $output .= $this->formFilesOutput($dynamicIncludes, $widget);
+                        $config->setGlobalParameter(\OxidEsales\Eshop\Core\ViewHelper\JavaScriptRegistrator::FILES_PARAMETER_NAME . '_dynamic', null);
+                    }
                 }
             }
 

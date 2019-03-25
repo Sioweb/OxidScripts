@@ -32,4 +32,14 @@ $aModule = array(
         'onActivate'   => 'Ci\Oxid\Scripts\Core\Events::onActivate',
         'onDeactivate' => 'Ci\Oxid\Scripts\Core\Events::onDeactivate'
     ),
+    'settings' => [
+        ['group' => 'scripts_settings', 'name' => 'ScriptsAreConcatenated', 'type' => 'bool', 'value' => '1'],
+    ],
+    'blocks' => array(
+        array(
+            'template' => 'layout/base.tpl',
+            'block' => 'head_css',
+            'file' => 'views/blocks/head_css.tpl'
+        )
+    ),
 );
