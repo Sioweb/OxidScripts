@@ -4,7 +4,7 @@ namespace Ci\Oxid\Scripts\Core;
 
 use OxidEsales\Eshop\Core\Registry;
 
-class Utilsview extends Utilsview_parent
+class UtilsView extends UtilsView_parent
 {
     protected function _fillCommonSmartyProperties($oSmarty)
     {

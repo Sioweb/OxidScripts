@@ -21,12 +21,12 @@ $aModule = array(
     'author'      => 'Sascha Weidner',
     'extend'      => array(
         // Smarty-Block hinzufügen
-        \OxidEsales\Eshop\Core\Utilsview::class => 
-            \Ci\Oxid\Scripts\Core\Utilsview::class,
+        \OxidEsales\Eshop\Core\UtilsView::class => 
+            Ci\Oxid\Scripts\Core\UtilsView::class,
         \OxidEsales\Eshop\Core\ViewHelper\JavaScriptRegistrator::class => 
-            \Ci\Oxid\Scripts\Core\ViewHelper\JavaScriptRegistrator::class,
+            Ci\Oxid\Scripts\Core\ViewHelper\JavaScriptRegistrator::class,
         \OxidEsales\Eshop\Core\ViewHelper\JavaScriptRenderer::class => 
-            \Ci\Oxid\Scripts\Core\ViewHelper\JavaScriptRenderer::class,
+            Ci\Oxid\Scripts\Core\ViewHelper\JavaScriptRenderer::class,
     ),
     'events'       => array(
         'onActivate'   => 'Ci\Oxid\Scripts\Core\Events::onActivate',
