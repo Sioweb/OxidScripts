@@ -8,16 +8,13 @@ Webpack sollte nun die Datei `/out/AKTIVES_THEME/js/scripts.min.js` anlegen, die
 
 **Hinweis:** Dieses Modul übernimmt keine Webpack/NPM konfiguration.
 
-
-
-
 ## Anwendung
 
-First of all: Füge `<script>var oxTemplateCallbacks = [];</script>` vor dem schließenden </head>-Tag in deinem Template ein.
-
-Der Tag befindet i.d.R. sich unter `source/Application/views/AKTIVES THEME/tpl/layout/base.tpl`.
+In den Moduleinstellungen, kann eingestellt werden, ob alle Javascripte bereits zusammengefasst wurden. Ohne diese Option, werden alle indlude-Javgascripte ausgegeben.
 
 Im Block `base_js` weiter unten könnte dann das Masterscript von Webpack geladen werden:
+
+Der Block befindet i.d.R. sich unter `source/Application/views/AKTIVES THEME/tpl/layout/base.tpl`.
 
 ```
 [{block name="base_js"}]
