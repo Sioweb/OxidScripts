@@ -1,6 +1,6 @@
 <?php
 
-namespace Ci\Oxid\Hotspots\Core;
+namespace Ci\Oxid\Scripts\Core;
 
 use OxidEsales\Eshop\Core\Registry;
 
@@ -9,6 +9,6 @@ class Utilsview extends Utilsview_parent
     protected function _fillCommonSmartyProperties($oSmarty)
     {
         parent::_fillCommonSmartyProperties($oSmarty);
-        array_unshift($oSmarty->plugins_dir, Registry::getConfig()->getModulesDir() . "/ci-haeuser/Core/Smarty/");
+        array_unshift($oSmarty->plugins_dir, Registry::getConfig()->getModulesDir() . "/ci-haeuser/Script/Core/Smarty/");
     }
 }
