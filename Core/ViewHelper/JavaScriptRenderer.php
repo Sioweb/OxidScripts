@@ -92,7 +92,7 @@ class JavaScriptRenderer extends JavaScriptRenderer_parent
                 $scriptsOutput = "window.addEventListener('load', function() { $scriptsOutput }, false )";
             }
             
-            return "<script type='text/javascript'>if(typeof oxTemplateCallbacks === 'undefined') { var oxTemplateCallbacks=[];}oxTemplateCallbacks.push(function(jQuery) {return (function($) {if(arguments[1] !== undefined) {console.log(`$scriptsOutput`);}$scriptsOutput return true;})(jQuery);});</script>";
+            return '<script type="text/javascript">if(typeof oxTemplateCallbacks === "undefined") {var oxTemplateCallbacks=[];}oxTemplateCallbacks.push(function(jQuery) {return (function($) {'.$scriptsOutput.' return true;})(jQuery);});</script>';
         }
     }
 }
