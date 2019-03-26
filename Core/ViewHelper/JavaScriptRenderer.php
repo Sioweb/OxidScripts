@@ -18,6 +18,9 @@ class JavaScriptRenderer extends JavaScriptRenderer_parent
      */
     public function render($widget, $forceRender, $isDynamic = false)
     {
+        if(isAdmin()) {
+            return parent::render($widget, $forceRender, $isDynamic);
+        }
         $config = \OxidEsales\Eshop\Core\Registry::getConfig();
         $output = '';
         $suffix = $isDynamic ? '_dynamic' : '';
@@ -81,12 +84,15 @@ class JavaScriptRenderer extends JavaScriptRenderer_parent
      */
     protected function enclose($scriptsOutput, $widget, $isAjaxRequest)
     {
+        if(isAdmin()) {
+            return parent::enclose($scriptsOutput, $widget, $isAjaxRequest);
+        }
         if ($scriptsOutput) {
             if ($widget && !$isAjaxRequest) {
                 $scriptsOutput = "window.addEventListener('load', function() { $scriptsOutput }, false )";
             }
             
-            return "<script type='text/javascript'>oxTemplateCallbacks.push(function(jQuery) {return (function($) {if(arguments[1] !== undefined) {console.log(`$scriptsOutput`);}$scriptsOutput return true;})(jQuery);});</script>";
+            return "<script type='text/javascript'>if(typeof oxTemplateCallbacks === 'undefined') { var oxTemplateCallbacks=[];}oxTemplateCallbacks.push(function(jQuery) {return (function($) {if(arguments[1] !== undefined) {console.log(`$scriptsOutput`);}$scriptsOutput return true;})(jQuery);});</script>";
         }
     }
 }
