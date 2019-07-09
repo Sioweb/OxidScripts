@@ -91,8 +91,10 @@ class JavaScriptRenderer extends JavaScriptRenderer_parent
             if ($widget && !$isAjaxRequest) {
                 $scriptsOutput = "window.addEventListener('load', function() { $scriptsOutput }, false )";
             }
+
             
-            return '<script type="text/javascript">if(typeof oxTemplateCallbacks === "undefined") {var oxTemplateCallbacks=[];}oxTemplateCallbacks.push(function(jQuery) {return (function($) {'.$scriptsOutput.' return true;})(jQuery);});</script>';
+            return '<script type="text/javascript">oxCallbacks.registrate("' . ($isAjaxRequest ? 'oxArticleVariantReload' : 'oxOnload') . '", function($) {'.$scriptsOutput.'});</script>';
+            // return '<script type="text/javascript">if(typeof oxTemplateCallbacks === "undefined") {var oxTemplateCallbacks=[];}oxTemplateCallbacks.push(function(jQuery) {return (function($) {'.$scriptsOutput.' return true;})(jQuery);});</script>';
         }
     }
 }
