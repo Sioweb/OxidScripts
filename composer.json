@@ -1,30 +1,36 @@
 {
   "name": "cihaeuser/scripts",
-  "description": "Load javascripts as webpack.",
-  "type": "oxideshop-module",
-  "keywords": [
-    "oxid",
-    "modules",
-    "assets"
-  ],
-  "homepage": "https://www.seipp.com",
+  "description": "Optimiert Javascripte so, dass sie am Ende der Seite geladen werden können.",
+  "type": "oxidkernel-module",
+  "version": "6.0.0",
+  "keywords": ["oxid","modules","assets"],
+  "homepage": "https://gitlab.seidemann-web.com/ci-haeuser-module/scripts",
   "license": [
-    "GPL-3.0-only"
+    "proprietary"
   ],
   "extra": {
     "oxideshop": {
       "blacklist-filter": [
         "documentation/**/*.*"
       ],
+      "source-directory": "./src/Resources/oxid",
       "target-directory": "ci-haeuser/Scripts"
     }
   },
   "require": {
-    "php": ">=7.0"
+    "php": "^7.0",
+    "sioweb/ccevent-git": "*",
+    "oxid-community/symfony-kernel": "*"
   },
   "autoload": {
     "psr-4": {
-      "Ci\\Oxid\\Scripts\\": "../../../source/modules/ci-haeuser/Scripts/"
+      "Ci\\Oxid\\Scripts\\": "src/"
     }
+  },
+  "scripts": {
+    "package-scripts": [
+      "@config.localhost==1",
+      "Sioweb\\CCEvent\\Git\\Composer\\Git::init --repository=git@gitlab.seidemann-web.com:ci-haeuser-module/Scripts.git"
+    ]
   }
 }
