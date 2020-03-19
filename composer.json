@@ -2,7 +2,6 @@
   "name": "cihaeuser/scripts",
   "description": "Optimiert Javascripte so, dass sie am Ende der Seite geladen werden können.",
   "type": "oxidkernel-module",
-  "version": "6.0.0",
   "keywords": ["oxid","modules","assets"],
   "homepage": "https://gitlab.seidemann-web.com/ci-haeuser-module/scripts",
   "license": [
