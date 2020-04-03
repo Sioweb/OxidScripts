@@ -3,7 +3,7 @@
 /**
  * Metadata version
  */
-$sMetadataVersion = '2.0';
+$sMetadataVersion = '2.1';
 
 /**
  * Module information
@@ -21,8 +21,6 @@ $aModule = array(
     'author'      => 'Sascha Weidner',
     'extend'      => array(
         // Smarty-Block hinzufügen
-        \OxidEsales\Eshop\Core\UtilsView::class => 
-            Ci\Oxid\Scripts\Core\UtilsView::class,
         \OxidEsales\Eshop\Core\ViewHelper\JavaScriptRegistrator::class => 
             Ci\Oxid\Scripts\Core\ViewHelper\JavaScriptRegistrator::class,
         \OxidEsales\Eshop\Core\ViewHelper\JavaScriptRenderer::class => 
@@ -32,6 +30,9 @@ $aModule = array(
         'onActivate'   => 'Ci\Oxid\Scripts\Core\Events::onActivate',
         'onDeactivate' => 'Ci\Oxid\Scripts\Core\Events::onDeactivate'
     ),
+    'smartyPluginDirectories' => [
+        'Smarty'
+    ],
     'settings' => [
         ['group' => 'scripts_settings', 'name' => 'ScriptsAreConcatenated', 'type' => 'bool', 'value' => '1'],
     ],
